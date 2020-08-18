@@ -1,0 +1,12 @@
+$widthLeft:220px;
+.layout-box {
+  .layout-left{
+    width: $widthLeft;
+  }
+  .layout-right{
+    margin-left: $widthLeft;
+  }
+}
+.Menu-LeftNav{
+  left:$widthLeft !important;
+}
