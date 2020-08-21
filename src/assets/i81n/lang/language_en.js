@@ -19,7 +19,9 @@ const language_en = {
     public:{
         yes:'yes',
         no:'no',
-        operation:'operation',
+        operation:'Operation',
+
+        edit:'edit'
     },
 
     /*基础权限*/
@@ -49,8 +51,6 @@ const language_en = {
         postal_code:"Postal Code",
         serial_no:"Serial No.",
 
-
-
         transaction:'transaction',
         recipient_phone:'phone',
         tracking_no:'trackingNo',
@@ -69,14 +69,23 @@ const language_en = {
 
     /*二级菜单*/
     navSecond:{
+        'index':'home',
+
         'admin/auth/auth':'adminAuth',
         'admin/auth/group':'authGroup',
         'admin/auth/role':'authRole',
         'admin/user':'adminUser',
 
-        'locker/index':'lockerIndex',
+        'locker/list':'lockerList',
+        'locker/compartments':'compartments',      /*柜机格口*/
 
-        'order/list':'orderList',
+        'order/list':'orderList',  /*全部订单列表*/
+        'order/reserve':'Reservation & Booking',  /*预定订单列表*/
+        'order/expired':'Expired & Retrieved',  /*到期订单列表*/
+
+        'ads/info':'ADS',   /*广告*/
+
+        'report/order':'report',   /*报表*/
 
         'message/SMS':'messageSMS',
 

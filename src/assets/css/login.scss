@@ -1,21 +1,35 @@
 .login-main {
-  background: url(https://swim.zmtek.net/assets/images/bg-login2.png) no-repeat 50% 50%;
-  /*background: url('~@/assets/images/bg-login2.png') no-repeat 50% 50%;*/
+  //background: url('https://swim.zmtek.net/assets/images/bg-login2.png') no-repeat 50% 50%;
+  background: url('~@/assets/images/bg/bgLogin.png') no-repeat 50% 50%;
   background-size: cover;
   width: 100%;
   height: 100vh;
   position: relative;
-
+  padding-top: 10vh;
+ /* .bgimg-top{
+    background: url('~@/assets/images/bg/bgLoginTop.png') no-repeat 50% 50%;
+    background-size: cover;
+    width: 80%;
+    height: 80vh;
+    margin: 0 auto;
+    position: relative;
+  }*/
   .login-box {
+    //display: none;
+    background: url('~@/assets/images/bg/bgLoginTop.png') no-repeat 50% 50%;
+    background-size: cover;
     position: absolute;
-    right: 158px;
-    top: calc(50vh - 196px);
-    width: 340px;
-    min-height: 440px;
-    background: rgba(39, 61, 89, .9);
-    -webkit-box-shadow: -1px 2px 8px 0 rgba(12, 22, 36, .79);
-    box-shadow: -1px 2px 8px 0 rgba(12, 22, 36, .79);
-    border-radius: 10px;
+    right: 25%;
+    top: calc(50vh - 28%);
+    //margin-top: calc(50vh - 28.5%);
+    width:20.8%;
+    min-width: 380px;
+    height: 57%;
+    //min-height: 440px;
+    //background: rgba(39, 61, 89, .9);
+    //-webkit-box-shadow: -1px 2px 8px 0 rgba(12, 22, 36, .79);
+    //box-shadow: -1px 2px 8px 0 rgba(12, 22, 36, .79);
+    //border-radius: 10px;
     text-align: center;
     padding: 20px 30px;
 
@@ -28,7 +42,7 @@
     .login-title {
       display: block;
       margin: 0 auto;
-      color: #fff;
+      //color: #fff;
       font-size: 16px
     }
 
@@ -38,28 +52,29 @@
     }
 
     .el-input--small .el-input__icon {
-      color: #fff
+      //color: #fff;
     }
 
     .el-input__inner {
       background: hsla(0, 0%, 100%, .4);
       font-size: 16px;
       font-weight: 400;
-      color: #fff
+      border: solid 1px #263A54;
+      //color: #fff
     }
 
     .btnLogin {
       width: 100%;
       margin-top: 8px;
       margin-bottom: 10px;
-      background-color: #fff;
-      color: #273d59;
+      background-color: #273d59;
+      color: #fff;
       padding:10px 0;
     }
 
     .btnLogin:hover {
-      background-color: #273d59;
-      color: #fff
+      background-color: #fff;
+      color: #273d59;
     }
 
     .btnLogin2 {

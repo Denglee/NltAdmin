@@ -30,7 +30,7 @@
                         <el-table-column prop="name" label="分组名称" ></el-table-column>
                         <el-table-column prop="username" label="组管理员" ></el-table-column>
 
-                        <el-table-column label="操作" width="400" min-width="300">
+                        <el-table-column :label="$t('public.operation')" width="400" min-width="300">
                             <template slot-scope="scope">
                                 <el-button size="mini" class="btn-noBor" @click="btnChangePass(scope.$index, scope.row)">组管理员密码修改</el-button>
                                 <el-button size="mini" class="btn-noBor" @click="FnEditGroup(scope.$index, scope.row)">权限组编辑</el-button>
@@ -65,7 +65,7 @@
                     <el-input v-model="editGroupArr.name" clearable placeholder="分组名称" class="dia-inp" autocomplete="off"></el-input>
                 </el-form-item>
             </el-form>
-            <div slot="footer" class="dialog-footer">
+            <div slot="footer" class="dialog-footer-toRight">
                 <el-button type="primary" @click="sureDiaEditGroup('addForm')" :loading="btnLoad.btnEditSureGroup">确 定</el-button>
             </div>
         </el-dialog>

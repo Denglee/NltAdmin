@@ -30,18 +30,18 @@ const staticRoute = [
             /* 1、 柜机 管理 */
             {
                 // path: 'locker/list',  //柜机列表
-                path: 'locker/index',
+                path: 'locker/list',
                 name: 'lockerList',
                 component: () => import(/* webpackChunkName: "lockerList" */ '@/views/Locker/lockerList'),
-                meta: {title: 'locker/index',keepAlive: true},
+                meta: {title: 'locker/list',keepAlive: true},
             },
             {
-                // path: 'locker/list',
                 path: 'locker/compartments', //柜机格口
                 name: 'lockerCompart',
                 component: () => import(/* webpackChunkName: "lockerCompart" */ '@/views/Locker/lockerCompart'),
                 meta: {title: 'locker/compartments',keepAlive: true},
             },
+
 
             /* 2、 快递单管理*/
             {
@@ -49,6 +49,18 @@ const staticRoute = [
                 name: 'orderList',
                 component: () => import(/* webpackChunkName: "orderList" */ '@/views/Order/orderList'),
                 meta: {title: 'order/list',keepAlive: true},
+            },
+            {
+                path: 'order/reserve',
+                name: 'orderReserve',
+                component: () => import(/* webpackChunkName: "orderReserve" */ '@/views/Order/orderReserve'),
+                meta: {title: 'order/reserve',keepAlive: true},
+            },
+            {
+                path: 'order/expired',
+                name: 'orderExpired',
+                component: () => import(/* webpackChunkName: "orderExpired" */ '@/views/Order/orderExpired'),
+                meta: {title: 'order/expired',keepAlive: true},
             },
 
 
@@ -68,6 +80,12 @@ const staticRoute = [
                 component: () => import(/* webpackChunkName: "reportsIndex" */ '@/views/Reports/reportsIndex'),
                 meta: {title: 'reports/index',keepAlive: true},
             },
+            {
+                path: 'report/order',
+                name: 'reportOrder',
+                component: () => import(/* webpackChunkName: "reportOrder" */ '@/views/Reports/reportOrder'),
+                meta: {title: 'report/order',keepAlive: true},
+            },
 
 
             /* 5、 广告投放 */
@@ -76,6 +94,12 @@ const staticRoute = [
                 name: 'adsIndex',
                 component: () => import(/* webpackChunkName: "reportsIndex" */ '@/views/Ads/adsIndex'),
                 meta: {title: 'admin/ads',keepAlive: true},
+            },
+            {
+                path: 'ads/info',
+                name: 'adsInfo',
+                component: () => import(/* webpackChunkName: "reportsIndex" */ '@/views/Ads/adsInfo'),
+                meta: {title: 'ads/info',keepAlive: true},
             },
 
 

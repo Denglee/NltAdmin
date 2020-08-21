@@ -39,7 +39,7 @@ const language_ta = {
         'admin/auth/group':'组管理',
         'admin/user':'用户权限',
 
-        'locker/index':'柜机列表',      /*柜机*/
+        'locker/list':'柜机列表',      /*柜机*/
 
         'order/list':'所有订单',     /*订单*/
 

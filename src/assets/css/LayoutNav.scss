@@ -182,9 +182,7 @@ $widthLeft:150px;
     }
   }
 
-
 }
-
 
 
 /*HeaderTop*/
@@ -277,10 +275,15 @@ $headerHeight:70px;
   text-align: right;
   display: flex;
   min-width: 100px;
+  margin-left: 20px;
+  .el-dropdown{
+    width: 100%;
+  }
   .el-dropdown-link{
     display: flex;
     height: 70px;
     align-items: center;
+    justify-content: flex-end;
     & :hover{
         color: $color-DarkBlue;
         cursor: pointer;

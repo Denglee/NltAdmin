@@ -21,7 +21,7 @@
                     <el-table-column prop="id" label="ID" width="50px"></el-table-column>
                     <el-table-column prop="name" label="规则描述"></el-table-column>
                     <el-table-column prop="value" label="规则标识"></el-table-column>
-                    <el-table-column label="操作" width="300">
+                    <el-table-column :label="$t('public.operation')" width="300">
                         <template slot-scope="scope">
                             <el-button size="mini" class="btn-noBor" @click="btnChangeAuth(scope.$index, scope.row)">编辑</el-button>
                         </template>

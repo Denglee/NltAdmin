@@ -14,7 +14,7 @@
                 <el-input v-model="addGroupPar.checkedPassword"  show-password clearable placeholder="组管理员确认密码" class="dia-inp" autocomplete="off"></el-input>
             </el-form-item>
         </el-form>
-        <div slot="footer" class="dialog-footer">
+        <div slot="footer" class="dialog-footer-toRight">
 <!--            <el-button @click="showState.diaGroup = false" plain>取 消</el-button>-->
             <el-button type="primary" @click="sureDiaGroup('addForm')" :loading="ArrAddGroup.btnSureGroup">确 定</el-button>
         </div>

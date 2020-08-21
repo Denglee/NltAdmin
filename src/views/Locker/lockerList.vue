@@ -19,7 +19,7 @@
                 <!--员工列表 筛选-->
                 <div class="pt-screen">
 
-                    <el-input :placeholder="$t('locker.dev_no')" v-model="searchForm.dev_no" class="ptScreen-input" clearable></el-input>
+                    <el-input :placeholder="$t('locker.dev_no')" v-model="searchForm.keyword" class="ptScreen-input" clearable></el-input>
                     <el-button icon="el-icon-search" @click="btnSeaLocker" :loading="btnLoad.searchLoad" class="btn-public">
                         {{$t('btn.search')}}</el-button>
 
@@ -41,9 +41,10 @@
                             <div v-if="scope.row.is_default == 1 " class="auth-isShow1">是</div>
                         </template>
                     </el-table-column>-->
-                    <el-table-column label="操作" min-width="100">
+                    <el-table-column :label="$t('public.operation')" min-width="100">
                         <template slot-scope="scope">
-                            <el-menu default-active="1-1" class="el-menu-vertical-demo edit-elMenu" :collapse="true">
+                            <el-menu default-active="1-1" class="edit-elMenu-compart" :collapse="true"
+                                     background-color="rgba(255,255,255,0)">
                                 <el-submenu index="1"  popper-class="edit-elLeftMenu">
                                     <template slot="title">
                                         <i class="iconfont iconmore-01"></i>
@@ -65,24 +66,15 @@
                     </el-table-column>
                 </el-table>
 
-
                 <el-pagination
                         background
-                        :page-sizes="[10, 20, 30, 40]"
-                        :page-size="10"
-                        layout="prev, pager, next, sizes,  jumper"
-                        :total="pageArr.pageTotal"
-                        @current-change="PageCurrent">
+                        :page-sizes="[2,10, 20, 30, 40]"
+                        layout="prev, pager, next, sizes,total,  jumper"
+                        :total="searchForm.pageTotal"
+                        @current-change="PageCurrent"
+                        @size-change="PageSizeChange">
                 </el-pagination>
 
-               <!-- <el-pagination
-                        background
-                        layout="prev, pager, next, total, jumper"
-                        :total="pageArr.pageTotal"
-                        :page-size ="pageArr.pageSize"
-                        :page-sizes ="[10,20,30,50,100]"
-                        @current-change="PageCurrent">
-                </el-pagination>-->
             </div>
         </div>
 
@@ -94,7 +86,7 @@
 </template>
 
 <script>
-    import {getLockerListApi,  getCompartmentListApi, getLockerLabelApi, getLockerGroupApi,
+    import {getLockerListApi, getLockerLabelApi, getLockerGroupApi,
         getGroupUserApi,getUserLockerApi, getUserGroupApi} from "@/assets/js/api";
     import navRefush from '@/components/navRefush/navRefush' /*按钮组件  */
     import addLocker from "./addLocker";
@@ -102,9 +94,6 @@
         name: "lockerList",  //柜机列表
         data() {
             return {
-                pageArr:{
-                    pageTotal:1, //总条目数
-                },
 
                 btnLoad: {
                     btnBack:false,
@@ -126,11 +115,14 @@
 
                 /*搜索 字段*/
                 searchForm:{
+                    keyword:'',
                     dev_no:'',
                     location:'',
                     postal_code:'',
                     serial_no:'',
-
+                    page:1,
+                    pageTotal:1, //总条目数
+                    paginate:10,
                 },
 
                 lockerStatusArr:[
@@ -165,9 +157,7 @@
                 getLockerListApi(this.searchForm).then(res=>{
                     console.log(res);
                     this.lockerTable = res.DATA.data;
-                    this.pageArr = {
-                        pageTotal : res.DATA.total,
-                    };
+                    this.searchForm.pageTotal = res.DATA.total;
 
                 }).catch(res=>{
                     console.log(res);
@@ -190,9 +180,13 @@
             /*分页*/
             PageCurrent(page) {
                 console.log(page);
-                /*this.searchVal.p = page;
-                this.getPTSaleroom();*/
-                // this.staffPage = page;
+                this.searchForm.page = page;
+                this.FnGetLockerList();
+            },
+            PageSizeChange(val){
+                console.log(val);
+                this.searchForm.paginate = val;
+                this.FnGetLockerList();
             },
 
             /*修改 locker*/
@@ -262,7 +256,6 @@
         created() {
             this.FnGetLockerList();
 
-            /*this.getCompartmentList();*/
         },
         components:{
             navRefush,

@@ -33,7 +33,7 @@
                             <div v-if="scope.row.status_txt == 1 " class="auth-isShow1">是</div>
                         </template>
                     </el-table-column>-->
-                    <el-table-column label="操作" width="300">
+                    <el-table-column :label="$t('public.operation')" width="300">
                         <template slot-scope="scope">
                             <el-button size="mini" class="btn-noBor" @click="btnChangePass(scope.$index, scope.row)">修改密码</el-button>
                             <el-button size="mini" class="btn-noBor" @click="btnChangeAuth(scope.$index, scope.row)">编辑</el-button>
@@ -61,7 +61,7 @@
                     </el-select>
                 </el-form-item>
             </el-form>
-            <div slot="footer" class="dialog-footer">
+            <div slot="footer" class="dialog-footer-toRight">
                 <el-button @click="showState.diaAdd = false" plain>取 消</el-button>
                 <el-button type="primary" @click="sureAddDiaRole('addForm')" :loading="btnLoad.btnSureAdd">确 定</el-button>
             </div>

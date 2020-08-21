@@ -20,7 +20,7 @@
                     <el-table-column type="index" label="序号" width="50px"></el-table-column>
                     <el-table-column prop="id" label="角色ID"></el-table-column>
                     <el-table-column prop="name" label="角色名"></el-table-column>
-                    <el-table-column label="操作" width="300">
+                    <el-table-column :label="$t('public.operation')" width="300">
                         <template slot-scope="scope">
                             <el-button size="mini" class="btn-noBor" @click="btnSetPower(scope.$index, scope.row)">角色权限设置</el-button>
                             <el-button size="mini" class="btn-noBor" @click="editGroup(scope.$index, scope.row)">角色编辑</el-button>
@@ -35,7 +35,7 @@
                             <el-input v-model="addRolePar.name" placeholder="角色名" class="dia-inp" autocomplete="off"></el-input>
                         </el-form-item>
                     </el-form>
-                    <div slot="footer" class="dialog-footer">
+                    <div slot="footer" class="dialog-footer-toRight">
                         <el-button @click="showState.diaAdd = false" plain>取 消</el-button>
                         <el-button type="primary" @click="sureAddDiaGroup('addForm')" :loading="btnLoad.btnSureAdd">确 定</el-button>
                     </div>

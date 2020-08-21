@@ -378,7 +378,7 @@ $borRadius: 15px;
 .pub-table {
   border-radius: $borRadius;
   margin: 20px 0;
-
+  min-height: 296px;
   thead tr:first-child {
     th {
       background-color: $color-thBG;
@@ -479,9 +479,15 @@ $borRadius: 15px;
 .btn-noBor {
   border: 0;
   padding: 0 14px;
-
+  color: $color-MediumBlue;
+  font-size: 14px;
+  &:hover {
+    color: #333;
+  }
   i {
-    font-size: 18px;
+    font-size: 14px;
+    vertical-align: middle;
+    margin-right: 4px;
   }
 
   .icon-shanchutianchong {
@@ -672,7 +678,7 @@ $marRight: 14px;
   }
   .sel-status {
     width: 150px;
-    margin-left: 80px;
+    margin-right: 20px;
   }
 }
 
@@ -1111,13 +1117,104 @@ $tabHei: 46px;
 }
 
 
-.edit-elMenu{
-  border-right: 0;
-  .el-submenu__title i{
-    font-size: 28px;
+.dialog-footer-toRight{
+  text-align: right;
+}
+
+/*柜机 抽屉*/
+.locker-item{
+  &:hover {
+    background-color: #005ad4;
+    color: #fff;
+    cursor: pointer;
   }
 }
+.active-size{
+  background-color: #005ad4 !important;
+  color: #fff !important;;
+}
+.locker-list{
+  background-color: #eff2f9;
+  margin-top: 20px;
+  border-radius: 4px;
+  padding: 11px 14px;
+  .locker-label{
+    font-size: 16px;
+  }
+  .locker-size{
+    font-size: 12px;
+    margin-left: 10px;
+  }
+}
+.locker-box{
+  .el-col-6{
+    width: 20%;
+  }
+}
+
 .edit-elMenu-compart{
+  border-right: 0;
+  width: 40px;
+  text-align: center;
+  .el-submenu__title{
+    height: 30px;
+    line-height: 30px;
+    background: none !important;
+    display: block !important;
+    padding-left: 0 !important;
+    text-align: center;
+    i{
+      font-size: 28px;
+      display: block;
+      width: 40px;
+    }
+  }
+  .is-opened {
+    .el-submenu__title{
+     /* background: #005ad4 !important;
+      color: #fff;*/
+      i{
+        color: #005ad4;
+      }
+    }
+  }
+}
+.elMenu-compart{
+  width: 26px;
+  i{
+    width: 24px;
+  }
+}
+
+.edit-elLeftMenu{
+  width: auto;
+  .el-menu--popup{
+    min-width: auto;
+    background-color: #fff !important;
+  }
+  .el-menu-item{
+    height: 28px;
+    line-height: 28px;
+    color:#333;
+  }
+  .el-submenu__title {
+    height: 28px;
+    line-height: 28px;
+    //width: 26px;
+  }
+  /*.el-menu-item.is-active {
+    color: #fff !important;
+    background-color: #005ad4 !important;
+  }*/
+  .el-menu-item:hover{
+    background-color: #F5F7FA !important;
+    color: #005ad4 !important;
+  }
+}
+
+
+/*.edit-elMenu-compart{
+  border-right: 0;
   .el-submenu__title{
     height: 30px;
     line-height: 30px;
@@ -1125,14 +1222,27 @@ $tabHei: 46px;
       font-size: 28px;
     }
   }
+}*/
+
+
+.orderInfo-main {
+  .marTop20{
+    margin-top: 20px;
+  }
 }
-.edit-elLeftMenu{
-  width: auto;
-  .el-menu--popup{
-    min-width: auto;
-  }
-  .el-menu-item, .el-submenu__title {
-    height: 34px;
-    line-height: 34px;
-  }
+
+.orderInfo-item{
+  -webkit-box-shadow: -1px 2px 12px 0 hsla(0,0%,85.9%,.79);
+  box-shadow: -1px 2px 12px 0 hsla(0,0%,85.9%,.79);
+  border-radius: 20px;
+  min-height: 200px;
+
+}
+.orderInfo-title{
+  border-bottom: solid 1px #eff2f9;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 27px;
+  height: 44px;
+  line-height: 44px;
 }

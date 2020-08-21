@@ -42,7 +42,7 @@
                 nowLang = 'cn';
                 localStorage.setItem('lang', 'cn')
             }
-            console.log(nowLang);
+            /*console.log(nowLang);*/
             this.getLanguage(nowLang);
 
             //TODO  1、样式切换 ： 导航宽度自定  ？  固定 ； 2、路由命名； 3、i18n 多语言完善。

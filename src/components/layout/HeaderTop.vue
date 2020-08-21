@@ -19,17 +19,13 @@
                     <!--<img class="userHeader" :src='localUrl+"/"+userInfo.logo || "assets/images/logo-daka.png"' alt="">-->
                     <el-dropdown class="dropdown-header">
                         <div class="el-dropdown-link">
-                            <div class="user-name">
-                                {{userInfo.username || 'user1'}}
-                            </div>
+                            <div class="user-name">{{userInfo.username || 'user1'}}</div>
                             <div><i class="el-icon-caret-bottom"></i></div>
                         </div>
                         <el-dropdown-menu slot="dropdown"
                                           hide-timeout="30000"
                                           class="dropdown-HeaderTop">
-                            <el-dropdown-item style="text-align: center; color: #fff;">
-                                {{userInfo.username}}
-                            </el-dropdown-item>
+                            <el-dropdown-item style="text-align: center; color: #fff;">{{userInfo.username}}</el-dropdown-item>
                            <!-- <el-dropdown-item command="a">
                                 <el-button type="text" @click="diaChangePass = true">更换密码</el-button>
                             </el-dropdown-item>-->

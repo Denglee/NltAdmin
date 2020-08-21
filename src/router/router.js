@@ -10,6 +10,10 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import {Message} from 'element-ui'
 
+const originalPush = Router.prototype.push
+Router.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 var permissionList = []
 

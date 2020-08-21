@@ -13,7 +13,7 @@
             </el-form-item>
         </el-form>
 
-        <div slot="footer" class="dialog-footer" style="text-align: right;">
+        <div slot="footer" class="dialog-footer-toRight">
             <el-button type="primary" @click="sureDiaGroup('addForm')" :loading="ArrAddGroup.btnSureGroup">确 定</el-button>
         </div>
 

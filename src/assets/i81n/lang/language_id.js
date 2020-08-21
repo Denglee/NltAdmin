@@ -40,7 +40,7 @@ const language_id = {
         'admin/auth/group':'Manajemen kelompok',
         'admin/user':'Hak pengguna',
 
-        'locker/index':'Daftar kabinet',      /*柜机*/
+        'locker/list':'Daftar kabinet',      /*柜机*/
 
         'order/list':'Semua perintah',     /*订单*/
 

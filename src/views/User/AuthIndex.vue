@@ -51,7 +51,9 @@
                     </el-table-column>
                     <el-table-column :label="$t('public.operation')" width="300">
                         <template slot-scope="scope">
-                            <el-button size="mini" class="btn-noBor" @click="btnChangeAuth(scope.$index, scope.row)">编辑</el-button>
+                            <el-button size="mini" class="btn-noBor" @click="btnChangeAuth(scope.$index, scope.row)">
+                                <i class="iconfont iconbianji"></i>{{$t('public.edit')}}
+                            </el-button>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -96,7 +98,7 @@
                     </el-radio-group>
                 </el-form-item>
             </el-form>
-            <div slot="footer" class="dialog-footer">
+            <div slot="footer" class="dialog-footer-toRight">
                 <el-button @click="showState.diaAddAuth = false" plain>取 消</el-button>
                 <el-button type="primary" @click="sureDiaAddAuth()" :loading="btnLoad.btnSureAddAuth">确 定</el-button>
             </div>

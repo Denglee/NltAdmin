@@ -1,34 +1,34 @@
 <template>
     <div class="login-main">
         <div class="login-box">
-            <img src="https://swim.zmtek.net/assets/images/logo-daka.png" alt="" class="login-logo">
-            <el-form :model="loginForm" :rules="loginRules" ref="loginForm" label-width="100px" class="login-ruleForm">
-                <div class="login-title">欢迎登陆</div>
-                <el-form-item prop="username">
-                    <el-input
-                            v-model="loginForm.username"
-                            placeholder="账号"
-                            clearable>
-                        <i slot="prefix" class="el-input__icon el-icon-user"></i>
-                    </el-input>
-                </el-form-item>
+        <img src="https://swim.zmtek.net/assets/images/logo-daka.png" alt="" class="login-logo">
+        <el-form :model="loginForm" :rules="loginRules" ref="loginForm" label-width="100px" class="login-ruleForm">
+            <div class="login-title">欢迎登陆</div>
+            <el-form-item prop="username">
+                <el-input
+                        v-model="loginForm.username"
+                        placeholder="账号"
+                        clearable>
+                    <i slot="prefix" class="el-input__icon el-icon-user"></i>
+                </el-input>
+            </el-form-item>
 
-                <el-form-item prop="password">
-                    <el-input v-model="loginForm.password"
-                              placeholder="密码"
-                              type="password"
-                              clearable
-                              :show-password=true
-                              @keyup.enter.native="submitForm('loginForm')">
-                        <i slot="prefix" class="el-input__icon el-icon-unlock"></i>
-                    </el-input>
-                </el-form-item>
+            <el-form-item prop="password">
+                <el-input v-model="loginForm.password"
+                          placeholder="密码"
+                          type="password"
+                          clearable
+                          :show-password=true
+                          @keyup.enter.native="submitForm('loginForm')">
+                    <i slot="prefix" class="el-input__icon el-icon-unlock"></i>
+                </el-input>
+            </el-form-item>
 
-                <el-button type="submit"  class="btnLogin" @click="submitForm('loginForm')"  :loading="loadState.searchLoad" >登录</el-button>
+            <el-button type="submit"  class="btnLogin" @click="submitForm('loginForm')"  :loading="loadState.searchLoad" >登录</el-button>
 
-            </el-form>
+        </el-form>
 
-        </div>
+</div>
     </div>
 </template>
 
