@@ -2,7 +2,7 @@
     <div class="layoutR-contain animated fadeIn">
 
         <div class="bgWhite-public">
-            <header class="index-item-title">权限组</header>
+            <header class="index-item-title">首页</header>
             <div class="bgWhite-padd20">
 
                 首页

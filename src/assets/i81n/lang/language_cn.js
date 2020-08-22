@@ -17,7 +17,7 @@ const language_cn = {
         'admin/system':'日志管理',
     },
 
-    /*二级导航*/
+    /*二级导航 */
     navSecond:{
         'index':'首页',
 

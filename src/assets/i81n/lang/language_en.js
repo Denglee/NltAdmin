@@ -37,25 +37,6 @@ const language_en = {
         },
     },
 
-    /*柜机列表*/
-    locker:{
-        today:'today',
-        last7d:'7d',
-        last30d:'30d',
-
-        btnAdd:'ADD',
-        title:"Locker Station List",
-
-        dev_no:"Device Label",
-        location:"Location",
-        postal_code:"Postal Code",
-        serial_no:"Serial No.",
-
-        transaction:'transaction',
-        recipient_phone:'phone',
-        tracking_no:'trackingNo',
-    },
-
     /*一级菜单*/
     navFirst:{
         'admin/auth':'Permission',
@@ -91,6 +72,43 @@ const language_en = {
 
         'system/logs':'systemLogs',
     },
+
+    /*柜机列表*/
+    locker:{
+        today:'today',
+        last7d:'7d',
+        last30d:'30d',
+
+        btnAdd:'ADD',
+        title:"Locker Station List",
+
+        dev_no:"Device Label",
+        location:"Location",
+        postal_code:"Postal Code",
+        serial_no:"Serial No.",
+
+        transaction:'transaction',
+        recipient_phone:'phone',
+        tracking_no:'trackingNo',
+    },
+
+    /*广告*/
+    ads:{
+        title:'ADS',
+    },
+
+    /*报表*/
+    report:{
+        title:'Report',
+    },
+
+
+    /*日志*/
+    logs:{
+        title:'Logs',
+    },
+
+
 
     tagNav:{
         lockerList:'Locker Station',

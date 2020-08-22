@@ -13,7 +13,7 @@
         </div>
         <div class="bgWhite-public">
 
-            <header class="index-item-title"></header>
+            <header class="index-item-title">{{$t('logs.title')}}</header>
             <div class="bgWhite-padd20">
 
                 <el-table class="pub-table edit-table" :data="logTable" border>

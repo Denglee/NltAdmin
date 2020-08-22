@@ -13,14 +13,23 @@
         </div>
         <div class="bgWhite-public">
 
-            <header class="index-item-title"></header>
+            <header class="index-item-title flex-between">
+                <h4>Reservation & Booking</h4>
+                <div>
+                    <el-radio-group v-model="orderReserveParm.status" size="mini" @change = 'FnRadioReserva'>
+                        <el-radio-button :label="0">ALL</el-radio-button>
+                        <el-radio-button :label="1">Reservation</el-radio-button>
+                        <el-radio-button :label="2">Booking</el-radio-button>
+                    </el-radio-group>
+                </div>
+            </header>
             <div class="bgWhite-padd20">
                 <div class="pt-screen">
 
-                    <el-input :placeholder="$t('locker.dev_no')" v-model="orderPar.dev_no" class="ptScreen-input" clearable></el-input>
-                    <el-input :placeholder="$t('locker.transaction')" v-model="orderPar.transaction" class="ptScreen-input" clearable></el-input>
-                    <el-input :placeholder="$t('locker.recipient_phone')" v-model="orderPar.recipient_phone" class="ptScreen-input" clearable></el-input>
-                    <el-input :placeholder="$t('locker.tracking_no')" v-model="orderPar.tracking_no" class="ptScreen-input" clearable></el-input>
+                    <el-input :placeholder="$t('locker.dev_no')" v-model="orderReserveParm.dev_no" class="ptScreen-input" clearable></el-input>
+                    <el-input :placeholder="$t('locker.transaction')" v-model="orderReserveParm.transaction" class="ptScreen-input" clearable></el-input>
+                    <el-input :placeholder="$t('locker.recipient_phone')" v-model="orderReserveParm.recipient_phone" class="ptScreen-input" clearable></el-input>
+                    <el-input :placeholder="$t('locker.tracking_no')" v-model="orderReserveParm.tracking_no" class="ptScreen-input" clearable></el-input>
 
                     <el-button icon="el-icon-search" @click="btnSeaOrder" :loading="btnLoad.searchLoad" class="btn-public">
                         {{$t('btn.search')}}</el-button>
@@ -55,7 +64,7 @@
                         background
                         :page-sizes="[2,10, 20, 30, 40]"
                         layout="prev, pager, next, sizes,total,  jumper"
-                        :total="orderPar.pageTotal"
+                        :total="orderReserveParm.pageTotal"
                         @current-change="PageCurrent"
                         @size-change="PageSizeChange">
                   >
@@ -70,7 +79,7 @@
     import {getOrderListApi,getOrderStatusApi,getLabelOrderApi } from "@/assets/js/api";
     import navRefush from '@/components/navRefush/navRefush' /*按钮组件  */
     export default {
-        name: "orderReserve ",  //预约订单
+        name: "orderReserve",  //预约订单
         data() {
             return {
                 // collapse:true,
@@ -91,7 +100,7 @@
                     { name:"添加", type:'if',  iconClass:'iconxinzengyonghu',  methodsName:'FnDiaAddOrder' ,pageName:'addAuth'},
                 ],
 
-                orderPar:{
+                orderReserveParm:{
                     dev_no:'',
                     transaction:'',
                     recipient_phone:'',
@@ -99,6 +108,8 @@
                     page:1,
                     pageTotal:1, //总条目数
                     paginate:10,
+
+                    status:'0',
                 },
 
                 /*订单 table  数组*/
@@ -108,15 +119,20 @@
             }
         },
         methods: {
+            /*状态 切换 选中 事件*/
+            FnRadioReserva(){
+                console.log(this.orderReserveParm.status);
+            },
+
             /*分页*/
             PageCurrent(page) {
                 console.log(page);
-                this.orderPar.page = page;
+                this.orderReserveParm.page = page;
                 this.getOrderList();
             },
             PageSizeChange(val){
                 console.log(val);
-                this.orderPar.paginate = val;
+                this.orderReserveParm.paginate = val;
                 this.getOrderList();
             },
 
@@ -138,10 +154,10 @@
 
             /*获取订单列表*/
             getOrderList(){
-                getOrderListApi(this.orderPar).then(res=>{
+                getOrderListApi(this.orderReserveParm).then(res=>{
                     console.log(res);
                     this.orderTable = res.DATA.data;
-                    this.orderPar.pageTotal = res.DATA.total;
+                    this.orderReserveParm.pageTotal = res.DATA.total;
                 }).catch(res=>{
                     console.log(res);
                 })

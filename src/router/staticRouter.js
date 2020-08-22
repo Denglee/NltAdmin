@@ -74,12 +74,12 @@ const staticRoute = [
 
 
             /* 4、 报表 */
-            {
+           /* {
                 path: 'reports/index',
                 name: 'reportsIndex',
-                component: () => import(/* webpackChunkName: "reportsIndex" */ '@/views/Reports/reportsIndex'),
+                component: () => import(/!* webpackChunkName: "reportsIndex" *!/ '@/views/Reports/reportsIndex'),
                 meta: {title: 'reports/index',keepAlive: true},
-            },
+            },*/
             {
                 path: 'report/order',
                 name: 'reportOrder',
@@ -89,12 +89,12 @@ const staticRoute = [
 
 
             /* 5、 广告投放 */
-            {
+            /*{
                 path: 'admin/ads',
                 name: 'adsIndex',
-                component: () => import(/* webpackChunkName: "reportsIndex" */ '@/views/Ads/adsIndex'),
+                component: () => import(/!* webpackChunkName: "reportsIndex" *!/ '@/views/Ads/adsIndex'),
                 meta: {title: 'admin/ads',keepAlive: true},
-            },
+            },*/
             {
                 path: 'ads/info',
                 name: 'adsInfo',
@@ -190,51 +190,6 @@ const staticRoute = [
 ];
 
 export default staticRoute
-
-
-/*
-
-柜机管理
-admin/locker
-
-
-locker/list  柜机列表
-
-
-
-快递单管理
-admin/order
-
-order/list  所有订单
-
-
-短信
-admin/message
-
-message/SMS  短信模板设置
-message/Emali  邮件模板设置
-
-
-报表
-admin/reports
-
-
-
-
-广告投放
-admin/ads
-
-
-
-系统管理
-admin/system
-
-日志管理
-system/logs
-
-*/
-
-
 
 
 

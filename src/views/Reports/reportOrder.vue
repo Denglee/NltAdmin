@@ -14,7 +14,7 @@
         <div class="bgWhite-public">
 
             <header class="index-item-title flex-between">
-                <div>report</div>
+                <h4>{{$t('report.title')}}</h4>
                 <el-select  filterable v-model="recent" placeholder="station" class="ptScreen-select" @change="changeTime">
                     <el-option v-for="(item,index) in countTime" :key="index" :label="$t('locker.'+item.label+'')" :value="item.name"></el-option>
                 </el-select>

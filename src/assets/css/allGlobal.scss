@@ -140,6 +140,13 @@ input:-webkit-autofill {
   border-radius: 20px;
 }
 
+.bg-orderInfo{
+  background:none;
+  .bgWhite-padd20{
+    padding: 0 20px 20px 20px;
+  }
+}
+
 .bgWhite-padd20 {
   padding: 20px;
 }
@@ -1207,7 +1214,7 @@ $tabHei: 46px;
     background-color: #005ad4 !important;
   }*/
   .el-menu-item:hover{
-    background-color: #F5F7FA !important;
+    background: none !important;
     color: #005ad4 !important;
   }
 }
@@ -1232,11 +1239,11 @@ $tabHei: 46px;
 }
 
 .orderInfo-item{
-  -webkit-box-shadow: -1px 2px 12px 0 hsla(0,0%,85.9%,.79);
-  box-shadow: -1px 2px 12px 0 hsla(0,0%,85.9%,.79);
+  -webkit-box-shadow: -1px 2px 6px  #e4e7ed;
+  box-shadow: -1px 2px 12px #e4e7ed;
   border-radius: 20px;
-  min-height: 200px;
-
+  min-height: 280px;
+  background-color: #fff;
 }
 .orderInfo-title{
   border-bottom: solid 1px #eff2f9;
@@ -1245,4 +1252,24 @@ $tabHei: 46px;
   padding: 0 27px;
   height: 44px;
   line-height: 44px;
+  align-items: center;
+}
+.orderInfo-infoUl{
+  padding:20px 20px 10px 20px;
+  li{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  div:first-child{
+    color: $color-fontGray;
+  }
+ /* div:nth-child(2n){
+    font-size: 16px;
+  }*/
+}
+.btnMoreStatus{
+  font-size: 12px;
+  width: auto;
+  padding: 0 6px;
 }

@@ -24,6 +24,7 @@
     import {updatePasswordApi} from "../../../assets/js/api";
 
     export default {
+        inject:['reLoad'],
         props:{
             changePassVal:{},
         },

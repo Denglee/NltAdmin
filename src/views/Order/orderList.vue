@@ -1,6 +1,6 @@
 <template>
     <div class="layoutR-contain animated fadeIn">
-        <div v-if="pageOrder.orderList">
+        <div v-show="pageOrder.orderList">
             <div class="btnNav-contain">
                 <navRefush :btnBack="btnLoad.btnBack" class="btnNav-left"></navRefush>
                 <ul>
@@ -55,6 +55,7 @@
                         <el-table-column prop="company" label="公司" min-width="50px"></el-table-column>
                         <el-table-column prop="recipient_phone" :label="$t('locker.recipient_phone')" min-width="50px"></el-table-column>
                         <el-table-column prop="transaction" :label="$t('locker.transaction')" min-width="50px"></el-table-column>
+                        <el-table-column prop="otp" label="otp" min-width="50px"></el-table-column>
                         <el-table-column :label="$t('public.operation')" min-width="100">
                             <template slot-scope="scope">
                                 <el-menu default-active="1-2" class="edit-elMenu-compart"
@@ -127,7 +128,7 @@
 
                 orderPar:{
                     dev_no:'',
-                    transaction:'',
+                    transaction:'',   //订单详情 必填字段
                     recipient_phone:'',
                     tracking_no:'',
 
@@ -161,20 +162,29 @@
         },
         methods: {
             /*进入订单详情*/
-            FnGoOrderInfo(){
+            FnGoOrderInfo(index,val){
+                console.log(val);
                 this.pageOrder={
                     orderList:false,
                     orderInfo:true,
                 };
-                sessionStorage.setItem('pageOrder','orderInfo');
+
+                let CookieOrderInfoArr = {
+                    id:val.id,
+                    pageName:'orderInfo',
+                }
+
+                sessionStorage.setItem('pageNameOrder',JSON.stringify(CookieOrderInfoArr));
             },
 
-            // Z1
+            // Z1 返回上一页
             goBack(val){
-                console.log(val[0]);
+                /*console.log(val[0]);*/
                 let indexPage = val[0];
                 this.pageShow('orderList','orderInfo',);
-                sessionStorage.removeItem('pageOrder');
+                sessionStorage.removeItem('pageNameOrder');
+
+                this.FnGetOrderList();
             },
 
             // 页面显影方法
@@ -187,12 +197,12 @@
             PageCurrent(page) {
                 console.log(page);
                 this.orderPar.page = page;
-                this.getOrderList();
+                this.FnGetOrderList();
             },
             PageSizeChange(val){
                 console.log(val);
                 this.orderPar.paginate = val;
-                this.getOrderList();
+                this.FnGetOrderList();
             },
 
 
@@ -208,11 +218,11 @@
 
             /*搜索点击事件*/
             btnSeaOrder(){
-                this.getOrderList();
+                this.FnGetOrderList();
             },
 
-            /*获取订单列表*/
-            getOrderList(){
+            /*获取订单列表 */
+            FnGetOrderList(){
                 getOrderListApi(this.orderPar).then(res=>{
                     console.log(res);
                     this.orderTable = res.DATA.data;
@@ -234,7 +244,7 @@
                 })
             },
 
-            /*获取抽屉对应订单*/
+            /*获取抽屉对应订单 */
             getLabelOrder(index,val){
                 console.log(val);
                 getLabelOrderApi({
@@ -247,16 +257,16 @@
             },
         },
         created() {
-            this.getOrderList();
-
-            let  CookiePageOrder = sessionStorage.getItem('pageOrder');
+            let  CookiePageOrder = JSON.parse(sessionStorage.getItem('pageNameOrder'));
             console.log(CookiePageOrder);
-            if(CookiePageOrder){
+            if(CookiePageOrder){  //有存 则显示orderInfo页面
                 this.pageOrder={
                     orderList:false,
                     orderInfo:true,
                 };
-            };
+            } else {  //没有 则是在InfoList ，请求接口
+                this.FnGetOrderList();
+            }
         },
         components:{
             navRefush,

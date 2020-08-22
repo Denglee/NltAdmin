@@ -13,7 +13,7 @@
         </div>
         <div class="bgWhite-public">
 
-            <header class="index-item-title"></header>
+            <header class="index-item-title">{{$t('ads.title')}}</header>
             <div class="bgWhite-padd20">
                 <el-table class="pub-table edit-table" :data="adsTable" border>
                     <el-table-column type="selection" label="index" min-width="50px"></el-table-column>
