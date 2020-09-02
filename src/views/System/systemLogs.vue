@@ -32,7 +32,6 @@
                         :total="logParm.pageTotal"
                         @current-change="PageCurrent"
                         @size-change="PageSizeChange">
-                    >
                 </el-pagination>
 
             </div>

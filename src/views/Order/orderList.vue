@@ -14,7 +14,7 @@
             </div>
             <div class="bgWhite-public">
 
-                <header class="index-item-title"></header>
+                <header class="index-item-title">Order List</header>
                 <div class="bgWhite-padd20">
                     <div class="pt-screen">
 
@@ -23,14 +23,14 @@
                                 v-model="dayTrend"
                                 type="daterange"
                                 unlink-panels
-                                range-separator="至"
-                                start-placeholder="开始日期"
-                                end-placeholder="结束日期"
+                                range-separator="To"
+                                :start-placeholder="$t('public.startTime')"
+                                :end-placeholder="$t('public.endTime')"
                                 value-format="yyyy-MM-dd"
                                 calss="ptScreen-select">
                         </el-date-picker>
 
-                        <el-select  filterable v-model="orderPar.status" placeholder="status" class="sel-status">
+                        <el-select  filterable v-model="orderPar.status" :placeholder="$t('order.statusName')" class="sel-status">
                             <el-option v-for="(item,index) in orderStatusArr" :key="index" :label="$t('order.status.'+item.value+'')" :value="item.type"></el-option>
                         </el-select>
 
@@ -43,7 +43,7 @@
                         <el-table-column prop="id" label="ID" min-width="50px"></el-table-column>
                         <el-table-column prop="tracking_no" :label="$t('locker.tracking_no')" min-width="50px"></el-table-column>
                         <el-table-column prop="postal_code" :label="$t('locker.postal_code')" min-width="50px"></el-table-column>
-                        <el-table-column prop="status" :label="$t('locker.status')" min-width="50px">
+                        <el-table-column prop="status" :label="$t('order.statusName')" min-width="50px">
                             <template slot-scope="scope">
                                <div v-for="(item,index) in orderStatusArr" :key="index" v-if="item.type == scope.row.status">
                                    {{scope.row.status}}
@@ -52,12 +52,13 @@
                             </template>
                         </el-table-column>
 
-                        <el-table-column prop="company" label="公司" min-width="50px"></el-table-column>
+                        <el-table-column prop="company" :label="$t('locker.company')" min-width="50px"></el-table-column>
                         <el-table-column prop="recipient_phone" :label="$t('locker.recipient_phone')" min-width="50px"></el-table-column>
                         <el-table-column prop="transaction" :label="$t('locker.transaction')" min-width="50px"></el-table-column>
-                        <el-table-column prop="otp" label="otp" min-width="50px"></el-table-column>
+                        <el-table-column prop="otp" label="Otp" min-width="50px"></el-table-column>
                         <el-table-column :label="$t('public.operation')" min-width="100">
                             <template slot-scope="scope">
+
                                 <el-menu default-active="1-2" class="edit-elMenu-compart"
                                          :collapse="true" menu-trigger='click' background-color="rgba(255,255,255,0)">
                                     <el-submenu index="1" popper-class="edit-elLeftMenu">
@@ -67,6 +68,7 @@
                                         <!--<el-menu-item index="1-2" @click.native="lookState(scope.$index, scope.row)">获取订单状态</el-menu-item>
                                         <el-menu-item index="1-3" @click.native="getLabelOrder(scope.$index, scope.row)">抽屉对应订单</el-menu-item>-->
                                         <el-menu-item index="1-3" @click.native="FnGoOrderInfo(scope.$index, scope.row)">查看订单详情</el-menu-item>
+
                                     </el-submenu>
                                 </el-menu>
                             </template>
@@ -81,7 +83,6 @@
                             :total="orderPar.pageTotal"
                             @current-change="PageCurrent"
                             @size-change="PageSizeChange">
-                      >
                     </el-pagination>
 
                 </div>
@@ -95,7 +96,7 @@
 
 <script>
     import {getOrderListApi,getOrderStatusApi,getLabelOrderApi } from "@/assets/js/api";
-    import navRefush from '@/components/navRefush/navRefush' /*按钮组件  */
+    import navRefush from '@/components/navRefush/navRefush' /*按钮组件 */
     import orderInfo from "./orderInfo";
     export default {
         name: "orderList",  //订单列表
@@ -139,9 +140,10 @@
                     status:'',
                 },
 
-                /*订单 table  数组*/
+                /*订单 table  数组 */
                 orderTable:[],
 
+                /* 订单状态 数组 */
                 orderStatusArr:[
                     {type: 0, value:'AllStates'},
                     {type: 1, value:'Created'},
@@ -157,11 +159,11 @@
                     {type: 11, value:'Reserve'},
                 ],
 
-
             }
         },
         methods: {
-            /*进入订单详情*/
+
+            /*进入订单详情 */
             FnGoOrderInfo(index,val){
                 console.log(val);
                 this.pageOrder={
@@ -184,7 +186,10 @@
                 this.pageShow('orderList','orderInfo',);
                 sessionStorage.removeItem('pageNameOrder');
 
-                this.FnGetOrderList();
+                if(this.orderTable.length == 0){
+                    this.FnGetOrderList();
+                }
+
             },
 
             // 页面显影方法
@@ -256,6 +261,7 @@
                 })
             },
         },
+
         created() {
             let  CookiePageOrder = JSON.parse(sessionStorage.getItem('pageNameOrder'));
             console.log(CookiePageOrder);
@@ -265,9 +271,13 @@
                     orderInfo:true,
                 };
             } else {  //没有 则是在InfoList ，请求接口
-                this.FnGetOrderList();
+                // this.FnGetOrderList();
+                if(this.orderTable.length == 0){
+                    this.FnGetOrderList();
+                }
             }
         },
+
         components:{
             navRefush,
             orderInfo,

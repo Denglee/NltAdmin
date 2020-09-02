@@ -1,7 +1,7 @@
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
 const language_cn = {
     login: {
-        username: '中文（简体）',
+        username: '中文',
         password: '密码',
         signin: '登录',
     },
@@ -17,7 +17,8 @@ const language_cn = {
         'admin/system':'日志管理',
     },
 
-    /*二级导航 */
+
+    /*二级导航*/
     navSecond:{
         'index':'首页',
 
@@ -27,7 +28,7 @@ const language_cn = {
         'admin/user':'用户权限',
 
         'locker/list':'柜机列表',      /*柜机*/
-        'locker/compartments':'柜机格口',      /*柜机格口*/
+        'locker/compartments':'柜机格口',      /*柜机格口 */
 
         'order/list':'所有订单',     /*订单*/
 
@@ -37,7 +38,7 @@ const language_cn = {
 
         'report/order':'报表',   /*报表*/
 
-        'system/logs':'日志订单',    /*系统管理*/
+        'system/logs':'日志订单',    /*系统管理 */
     },
 
     /*按钮*/
@@ -71,7 +72,10 @@ const language_cn = {
             is_show:'状态',
         },
     },
-
+    
+    authGroup:{
+    
+    },
 
     /*柜机列表*/
     locker:{
@@ -87,7 +91,6 @@ const language_cn = {
         recipient_phone:'电话',
         tracking_no:'订单号',
 
-
         dev_no:"设备编号",
         location:"位置",
         postal_code:"邮政编码",
@@ -98,6 +101,7 @@ const language_cn = {
         transaction:'流水号',
         recipient_phone:'电话',
         tracking_no:'订单号',
+        statusName:'状态',
         status:{
             AllStates:'全部状态',
             Created:'已创建',
@@ -112,9 +116,8 @@ const language_cn = {
             RecycleFailed:'回收失败',
             Reserve:'预留',
         },
+
     },
-
-
 
     ...zhLocale
 }

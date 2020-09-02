@@ -1,7 +1,7 @@
 import idLocale from 'element-ui/lib/locale/lang/id'
 const language_id = {
     login: {
-        username: 'pengguna',
+        username: 'Pengguna',
         password: '密码',
         signin: '登录',
     },

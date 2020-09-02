@@ -22,8 +22,8 @@
                     <el-table-column prop="name" label="角色名"></el-table-column>
                     <el-table-column :label="$t('public.operation')" width="300">
                         <template slot-scope="scope">
-                            <el-button size="mini" class="btn-noBor" @click="btnSetPower(scope.$index, scope.row)">角色权限设置</el-button>
-                            <el-button size="mini" class="btn-noBor" @click="editGroup(scope.$index, scope.row)">角色编辑</el-button>
+                            <el-button size="mini" class="btn-noBor" @click="btnSetPower(scope.$index, scope.row)"><i class="iconfont iconbianji"></i>角色权限设置</el-button>
+                            <el-button size="mini" class="btn-noBor" @click="editGroup(scope.$index, scope.row)"><i class="iconfont iconbianji"></i>角色编辑</el-button>
                         </template>
                     </el-table-column>
                 </el-table>

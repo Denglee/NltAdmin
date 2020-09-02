@@ -21,6 +21,7 @@
             </header>
             <div class="bgWhite-padd20">
 
+                <!-- 图表集群 -->
                 <el-row :gutter="20" class="locker-ul">
                     <el-col :span="14" >
                         <div class="charts-item">
@@ -46,7 +47,6 @@
     export default {
         name: "reportOrder",   //订单报表
         data() {
-
             this.timeColor=['#005ad4'];
             this.companyColor = ['#ff8a7e','#005ad4','#00a0e9','#8763ce','#1eaaa1','#4ccbeb','#5b5ec7','#ffbe00'];
             this.histogramSettings = {
@@ -82,6 +82,7 @@
             };
 
             return {
+
                 btnLoad: {
                     btnBack:false,
                     btnSureAddAuth:false,
@@ -114,6 +115,10 @@
             }
         },
         methods: {
+
+	        handleChange(val){
+                console.log(val);
+            },
 
             /*快递柜最近天数订单统计*/
             FnGetLockerOrderCount(){

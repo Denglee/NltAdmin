@@ -160,7 +160,7 @@ Vue.use(Upload);
 // Vue.use(CarouselItem);
 // Vue.use(Collapse);
 // Vue.use(CollapseItem);
-// Vue.use(Cascader);
+Vue.use(Cascader);
 // Vue.use(ColorPicker);
 // Vue.use(Transfer);
 // Vue.use(Container);

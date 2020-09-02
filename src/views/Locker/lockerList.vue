@@ -79,7 +79,7 @@
         </div>
 
         <!--tab2 分组名称 添加 弹窗-->
-        <el-dialog  :append-to-body="true" :title="lockerListArr.addLockerTitle" :visible.sync="showState.diaAddShow" custom-class="passAlert" width="600px">
+        <el-dialog :append-to-body="true" :title="lockerListArr.addLockerTitle" :visible.sync="showState.diaAddShow" custom-class="passAlert" width="600px">
             <addLocker :addLockerPar="addLockerPar" :addLockerType ="lockerListArr.addLockerType" ></addLocker>
         </el-dialog>
     </div>
@@ -158,7 +158,6 @@
                     console.log(res);
                     this.lockerTable = res.DATA.data;
                     this.searchForm.pageTotal = res.DATA.total;
-
                 }).catch(res=>{
                     console.log(res);
                 })

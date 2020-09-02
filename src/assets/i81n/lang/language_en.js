@@ -4,12 +4,14 @@ const language_en = {
         username: 'English',
         password: 'password',
         signin: 'signin',
-
+        btn:'Login',
+        title:'Welcome to login',
     },
 
     /*按钮*/
     btn:{
         refresh:'REFRESH',
+        search:'Search',
         add:'ADD',
         back:'BACK',
         addAuth:'addAuth',
@@ -17,11 +19,16 @@ const language_en = {
 
     /*通用*/
     public:{
-        yes:'yes',
-        no:'no',
+        yes:'Yes',
+        no:'No.',
         operation:'Operation',
 
-        edit:'edit'
+        edit:'Edit',
+
+        startTime:'Start Time',
+        endTime:'End Time',
+
+        noData:'No Data',
     },
 
     /*基础权限*/
@@ -52,25 +59,25 @@ const language_en = {
     navSecond:{
         'index':'home',
 
-        'admin/auth/auth':'adminAuth',
-        'admin/auth/group':'authGroup',
-        'admin/auth/role':'authRole',
-        'admin/user':'adminUser',
+        'admin/auth/auth':'Admin Auth',
+        'admin/auth/group':'Auth Group',
+        'admin/auth/role':'Auth Role',
+        'admin/user':'Admin User',
 
-        'locker/list':'lockerList',
-        'locker/compartments':'compartments',      /*柜机格口*/
+        'locker/list':'Locker List',
+        'locker/compartments':'Compartments',      /*柜机格口*/
 
-        'order/list':'orderList',  /*全部订单列表*/
+        'order/list':'Order List',  /*全部订单列表*/
         'order/reserve':'Reservation & Booking',  /*预定订单列表*/
         'order/expired':'Expired & Retrieved',  /*到期订单列表*/
 
         'ads/info':'ADS',   /*广告*/
 
-        'report/order':'report',   /*报表*/
+        'report/order':'Report',   /*报表*/
 
-        'message/SMS':'messageSMS',
+        'message/SMS':'Message SMS',
 
-        'system/logs':'systemLogs',
+        'system/logs':'System Logs',
     },
 
     /*柜机列表*/
@@ -78,18 +85,20 @@ const language_en = {
         today:'today',
         last7d:'7d',
         last30d:'30d',
+        last90d:'90d',
 
         btnAdd:'ADD',
         title:"Locker Station List",
 
         dev_no:"Device Label",
+        company:"Company",
         location:"Location",
         postal_code:"Postal Code",
         serial_no:"Serial No.",
 
-        transaction:'transaction',
-        recipient_phone:'phone',
-        tracking_no:'trackingNo',
+        transaction:'Transaction',
+        recipient_phone:'Phone',
+        tracking_no:'Tracking No.',
     },
 
     /*广告*/
@@ -108,11 +117,31 @@ const language_en = {
         title:'Logs',
     },
 
+    order:{
+        transaction:'Transaction',
+        recipient_phone:'Recipient Phone',
+        tracking_no:'Tracking No.',
+        statusName:'Status',
+        status:{
+            AllStates:'All States',
+            Created:'Created',
+            Reserved:'Reserved',
+            Delivered:'Delivered',
+            TimedOut:'Timed Out',
+            Cancelled:'Cancelled',
+            Recovered:'Recovered',
+            Pieced:'Pieced',
+            HasPassed:'HasPassed',
+            DeliveryFailed:'Delivery Failed',
+            RecycleFailed:'Recycle Failed',
+            Reserve:'Reserve',
+        },
 
+    },
 
     tagNav:{
         lockerList:'Locker Station',
-        AuthIndex:'jichuquanxianguanli',
+        AuthIndex:'Authority  management',
 
     },
 

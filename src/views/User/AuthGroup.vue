@@ -32,9 +32,9 @@
 
                         <el-table-column :label="$t('public.operation')" width="400" min-width="300">
                             <template slot-scope="scope">
-                                <el-button size="mini" class="btn-noBor" @click="btnChangePass(scope.$index, scope.row)">组管理员密码修改</el-button>
-                                <el-button size="mini" class="btn-noBor" @click="FnEditGroup(scope.$index, scope.row)">权限组编辑</el-button>
-                                <el-button size="mini" class="btn-noBor" @click="btnGroupRole(scope.$index, scope.row)">角色管理</el-button>
+                                <el-button size="mini" class="btn-noBor" @click="btnChangePass(scope.$index, scope.row)"><i class="iconfont iconbianji"></i>组管理员密码修改</el-button>
+                                <el-button size="mini" class="btn-noBor" @click="FnEditGroup(scope.$index, scope.row)"><i class="iconfont iconbianji"></i>权限组编辑</el-button>
+                                <el-button size="mini" class="btn-noBor" @click="btnGroupRole(scope.$index, scope.row)"><i class="iconfont iconbianji"></i>角色管理</el-button>
                             </template>
                          </el-table-column>
                     </el-table>

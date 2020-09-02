@@ -72,6 +72,7 @@
                     width="600px" :destroy-on-close ='true'>
             <changePass :changePassVal = "changePassVal"></changePass>
         </el-dialog>
+
     </div>
 </template>
 

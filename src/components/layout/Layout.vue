@@ -1,12 +1,12 @@
 <template>
-    <el-row type="flex" class="layout-box row-bg" justify="space-between">
+    <el-row type="flex" class="layout-box row-bg" justify="space-between" :data="getsLayoutWidth">
         <!--左侧侧边导航-->
-        <el-col :span="2" class="layout-left">
+        <el-col :span="2" class="layout-left" :style="{width:getsLayoutWidth+'px',}">
             <LeftNav></LeftNav>
         </el-col>
 
         <!--右侧主体内容-->
-        <el-col :span="22" class="layout-right">
+        <el-col :span="22" class="layout-right" :style="{marginLeft:getsLayoutWidth+'px',}" >
 
             <!--右侧头部-->
             <header class="layoutR-header">
@@ -36,7 +36,7 @@
     import LeftNav from './LeftNav'
     import TagNav from './TagNav'
 
-    import {mapActions, mapGetters} from 'vuex'
+    import {mapState,mapActions, mapGetters} from 'vuex'
 
     export default {
         data(){
@@ -67,6 +67,12 @@
             LeftNav,
             TagNav
         },
+
+        computed: {
+            ...mapGetters('otherStore',[ //用mapGetters来获取collection.js里面的getters
+                'getsLayoutWidth',
+            ]),
+        }
 
     }
 </script>

@@ -25,11 +25,11 @@
                                     <div>{{orderInfoArr.id}}</div>
                                 </li>
                                 <li>
-                                    <div>tracking No</div>
+                                    <div>Tracking No</div>
                                     <div>{{orderInfoArr.tracking_no}}</div>
                                 </li>
                                 <li>
-                                    <div>postal Code</div>
+                                    <div>Postal Code</div>
                                     <div>{{orderInfoArr.postal_code}}</div>
                                 </li>
                                 <li>
@@ -74,10 +74,10 @@
 
                     <el-col :span="12" >
                         <div class="orderInfo-item marTop20">
-                            <h4 class="orderInfo-title flex-between">
-                                <div>Status History</div>
+                            <div class="orderInfo-title flex-between">
+                                <h4>Status History</h4>
                                 <el-button class="btn-ptMore btnMoreStatus" @click="FnBtnMoreStatus"> LOAD MORE <i class="el-icon-arrow-right"></i></el-button>
-                            </h4>
+                            </div>
                             <ul class="orderInfo-infoUl">
                                 <li>
                                     <div>Transaction</div>
@@ -92,7 +92,7 @@
                                     <div>{{orderInfoArr.new_order_status.expired_time}}</div>
                                 </li>
                                 <li>
-                                    <div>collect Time</div>
+                                    <div>Collect Time</div>
                                     <div>{{orderInfoArr.new_order_status.collect_time}}</div>
                                 </li>
                             </ul>
@@ -118,10 +118,11 @@
             </div>
         </div>
 
-        <!--All STATUS 弹出-->
+        <!--All STATUS 弹出 -->
         <el-dialog  :append-to-body="true" title="All STATUS" :visible.sync="showState.diaMoreStatus" custom-class="passAlert"
                     width="600px" :destroy-on-close ='true'>
-            <ul class="orderInfo-infoUl" v-for="(item,index) in orderInfoArr.parcelorderstatus">
+            <div v-if="orderInfoArr.parcelorderstatus.length == 0" class="tip-data">{{$t('public.noData')}}</div>
+            <ul class="orderInfo-infoUl" v-for="(item,index) in orderInfoArr.parcelorderstatus" v-else>
                 <li  v-if="item.transaction">
                     <div>Transaction</div>
                     <div>{{item.transaction}}</div>
@@ -135,7 +136,7 @@
                     <div>{{item.expired_time}}</div>
                 </li>
                 <li v-if="item.collect_time">
-                    <div>collect Time</div>
+                    <div>Collect Time</div>
                     <div>{{item.collect_time}}</div>
                 </li>
             </ul>
@@ -211,7 +212,7 @@
                 })
             },
 
-            /*更多历史订单状态*/
+            /*更多历史订单状态 */
             FnBtnMoreStatus(){
               this.showState.diaMoreStatus = true;
             },
@@ -222,7 +223,7 @@
                 this.$emit('GoBack','orderList');
             },
 
-            /*搜索点击事件*/
+            /*搜索点击事件 */
             btnSeaOrder(){
 
             },

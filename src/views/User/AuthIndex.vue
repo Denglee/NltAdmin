@@ -60,6 +60,7 @@
             </div>
         </div>
 
+
         <!--tab2 权限 添加 弹窗-->
         <el-dialog  :append-to-body="true" :title="diaInfoArr.diaAuthTitle" :visible.sync="showState.diaAddAuth" width="600px" @close = 'closeAuthForm'>
             <el-form :model="authParams" class="dia-form" :label-width="formLabelWidth" ref="addAuthForm">

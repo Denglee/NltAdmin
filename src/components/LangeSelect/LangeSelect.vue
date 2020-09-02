@@ -30,6 +30,7 @@
 <!--    </el-dropdown>-->
 </template>
 <script>
+    import {mapState,mapActions, mapGetters} from 'vuex'
     export default {
         data () {
             return {
@@ -44,11 +45,13 @@
             }
             /*console.log(nowLang);*/
             this.getLanguage(nowLang);
-
-            //TODO  1、样式切换 ： 导航宽度自定  ？  固定 ； 2、路由命名； 3、i18n 多语言完善。
-
         },
+
         methods: {
+            ...mapActions('otherStore',[ //footerStatus是指modules文件夹下的no1.js
+                'actLayoutWidth',  //footerStatus.js文件中的actions里的方法，在上面的@click中执行并传入实参
+            ]),
+
             handleSetLanguage (lang) {
                 this.$i18n.locale = lang;
                 localStorage.setItem('lang', lang);
@@ -58,16 +61,20 @@
                 if(val === 'ta'){
                     this.language = 'ta';
                     console.log('lang == ta');
-                    import('@/assets/i81n/css/ta.scss');
+                    this.actLayoutWidth('220');
                 }
                 if (val === 'cn') {
                     this.language = '中文';
+                    this.actLayoutWidth('150');
                 }
                 if (val === 'en') {
                     this.language = 'English';
+                    this.actLayoutWidth('150');
                 }
                 if (val === 'id') {
                     this.language = 'id';
+                    this.actLayoutWidth('220');
+                    /*import('@/assets/i81n/css/ta.scss');*/
                 }
             },
         }

@@ -60,7 +60,6 @@
                 LOGO:require('@/assets/images/img/LOGO.png'),
                 localUrl:this.GLOBAL.localUrl,
                 isCollapse: true,
-
             };
         },
 

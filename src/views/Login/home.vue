@@ -66,7 +66,9 @@
 
             };
         },
+
         methods: {
+
             btnSearch(){
                 console.log(this.staffForm);
                 this.GLOBAL.btnStateChange(this, 'btnState', 'searchLoad')
@@ -81,6 +83,7 @@
             },
 
         },
+
         created() {
 
         },
