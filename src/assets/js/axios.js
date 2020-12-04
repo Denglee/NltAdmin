@@ -30,16 +30,16 @@ axios.interceptors.response.use(response => {
 
     // 对响应数据做点什么
     // console.log(response.data.status);
-    if (response.data.status == 3) {
-        console.log(response +'status == 3');
-    }
-    if (response.data.status == 0) {
-        console.log(`${response.data}  status == 0`);
-    }
-    if(!response.data.info){
-        /*console.log('暂无权限');*/
-        // Message.error('无操作权限，请联系管理员！');
-    }
+    // if (response.data.status == 3) {
+    //     console.log(response +'status == 3');
+    // }
+    // if (response.data.status == 0) {
+    //     console.log(`${response.data}  status == 0`);
+    // }
+    // if(!response.data.info){
+    //     /*console.log('暂无权限');*/
+    //     // Message.error('无操作权限，请联系管理员！');
+    // }
     return response;
 }, error => {
     // 对响应错误做点什么

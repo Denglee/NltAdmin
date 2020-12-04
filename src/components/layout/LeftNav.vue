@@ -14,7 +14,7 @@
             <!--一级导航-->
             <el-submenu class="sunmenu-box"
                         popper-class="Menu-LeftNav"
-                        :index="index1 +''"  v-for="(navItem , index1) in StateNavList.data"  :key="index1">
+                        :index="index1 +''"  v-for="(navItem , index1) in StateNavList"  :key="index1">
                 <template slot="title">
                     <!--<span>iconNav{{navItem.fonts}}</span>-->
 
@@ -73,12 +73,13 @@
             /*获取侧边导航数据*/
             getNavObj(){
                 ApiLayoutNav().then(res =>{
-                    if(res.status == 1){
-                        this.getNavList(res);  //数据传到store
-                    }
-                    if(res.status == 0){
+
+                    if(res.code == 0){
+                        this.getNavList(res.data);  //数据传到store
+                    }else{
+                    // if(res.code == 1){
                         this.$message({
-                            message: res.info,
+                            message: res.msg,
                             type: 'error',
                             duration:1500,
                             offset:40,

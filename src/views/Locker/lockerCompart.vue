@@ -99,11 +99,11 @@
         },
         methods: {
 
-            /*获取抽屉列表 api 事件*/
+            /*获取抽屉列表 api 事件  */
             /*FnGetCompartmentList(){
                 getCompartmentListApi().then(res=>{
                     console.log(res);
-                    this.compartSizeArr = res.DATA.data;
+                    this.compartSizeArr = res.data.data;
                 }).catch(res=>{
                     console.log(res);
                 });
@@ -112,9 +112,12 @@
             /*获取抽屉和订单信息 api*/
             FnGetCompartmentOrder(){
                 getCompartmentOrderApi(this.compactParm).then(res=>{
-                    console.log(res);
-                    this.compartSizeArr = res.DATA.label_size_count;
-                    this.compartList = res.DATA.list;
+                    console.log(res.data.list);
+                    if(!this.compactParm.size){
+	                    this.compartSizeArr = res.data.label_size_count;
+                    }
+
+                    this.compartList = res.data.list;
                 }).catch(res=>{
                     console.log(res);
                 });

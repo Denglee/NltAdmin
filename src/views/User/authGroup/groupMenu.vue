@@ -1,6 +1,11 @@
 <template>
     <div class="layoutR-contain animated fadeIn">
 
+        <!--<el-input
+                placeholder="输入关键字进行过滤"
+                v-model="filterText" clearable>
+        </el-input>-->
+
         <el-tree
                 :data="menuArr"
                 :show-checkbox = 'true'
@@ -8,6 +13,7 @@
                 node-key="id"
                 ref="tree"
                 :default-checked-keys="defaultChecked"
+                :filter-node-method="filterNode"
                 highlight-current
                 :props="defaultProps">
         </el-tree>
@@ -29,6 +35,7 @@
         data() {
 
             return {
+	            filterText: '',
                 defaultChecked:[],
 
                 defaultProps: {
@@ -44,13 +51,24 @@
 
             }
         },
+	    watch: {
+		    filterText(val) {
+			    this.$refs.tree.filter(val.trim());
+		    }
+	    },
+
         methods: {
+	        filterNode(value, data) {
+		        if (!value) return true;
+		        return data.name.indexOf(value) !== -1;
+	        },
 
             // 获取全部 接口+ 数据
             FnGetAuth() {
                 AllPromiseApi().then(res => {
                     console.log(res);
                     this.menuArr = res.data;
+
                     // let checkArr = res.data;
                     // res.data.forEach((item,index)=>{
                     //     item.sub_menu.forEach((item,index)=>{
@@ -73,7 +91,7 @@
                     this.editGroupPar.id = id;
                     console.log(id)
                     getGroupApi({id:id}).then(res => {
-                        let authGrpupIds = res.data[0].auth_ids;
+                        let authGrpupIds = res.data[0].auth_ids.split(",");
                         console.log(typeof (authGrpupIds));
                         this.defaultChecked = authGrpupIds;
                     }).catch(res => {

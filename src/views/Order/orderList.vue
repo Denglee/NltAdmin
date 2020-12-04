@@ -30,8 +30,9 @@
                                 calss="ptScreen-select">
                         </el-date-picker>
 
+
                         <el-select  filterable v-model="orderPar.status" :placeholder="$t('order.statusName')" class="sel-status">
-                            <el-option v-for="(item,index) in orderStatusArr" :key="index" :label="$t('order.status.'+item.value+'')" :value="item.type"></el-option>
+                            <el-option v-for="(item,index) in orderStatusArr" :key="index" :label="$t(`order.status.${item.value}`)" :value="item.type"></el-option>
                         </el-select>
 
                         <el-button icon="el-icon-search" @click="btnSeaOrder" :loading="btnLoad.searchLoad" class="btn-public">
@@ -95,7 +96,7 @@
 </template>
 
 <script>
-    import {getOrderListApi,getOrderStatusApi,getLabelOrderApi } from "@/assets/js/api";
+    import { getOrderListApi, getOrderStatusApi, getLabelOrderApi } from "@/assets/js/api";
     import navRefush from '@/components/navRefush/navRefush' /*按钮组件 */
     import orderInfo from "./orderInfo";
     export default {
@@ -230,8 +231,8 @@
             FnGetOrderList(){
                 getOrderListApi(this.orderPar).then(res=>{
                     console.log(res);
-                    this.orderTable = res.DATA.data;
-                    this.orderPar.pageTotal = res.DATA.total;
+                    this.orderTable = res.data.data;
+                    this.orderPar.pageTotal = res.data.total;
                 }).catch(res=>{
                     console.log(res);
                 })

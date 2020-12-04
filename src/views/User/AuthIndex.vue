@@ -1,3 +1,4 @@
+<script src="../../../../insist/src/router/staticRoute.js"></script>
 <template>
     <div class="layoutR-contain animated fadeIn">
         <!--右边iframe-->
@@ -201,7 +202,7 @@
                     is_tree:is_tree,
                 }).then(res=>{
                     // console.log(res);
-                    if(res.status == 1){
+                    if(res.code == 0){
 
                         let sortList = res.data;
                         console.log(sortList);

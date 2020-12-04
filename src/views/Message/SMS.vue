@@ -69,8 +69,8 @@
             FnGetMessageList(){
                 getMessageListApi().then(res=>{
                     console.log(res);
-                    this.smsTable = res.DATA.data;
-                    this.smsPar.pageTotal = res.DATA.total;
+                    this.smsTable = res.data.data;
+                    this.smsPar.pageTotal = res.data.total;
                 }).catch(res=>{
                     console.log(res);
                 })

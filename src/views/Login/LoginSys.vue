@@ -92,12 +92,12 @@
                         password: password,
                     }).then(res => {
                         console.log(res);
-                        if (res.status == 1) {
+                        if (res.code == 0) {
                             let loginData = res.data;
                             console.log(loginData);
                             that.ACTLogin(loginData);
                             this.$message({
-                                message: res.info,
+                                message: res.msg,
                                 type: 'success',
                                 duration: 1500,
                                 offset: 100,
@@ -120,10 +120,9 @@
                                 that.$router.push({path: '/index'});
                             }, 1500);
 
-                        }
-                        if (res.status == 0) {
+                        } else {
                             this.$message({
-                                message: res.info,
+                                message: res.msg,
                                 type: 'error',
                                 duration: 3000,
                                 offset: 40,

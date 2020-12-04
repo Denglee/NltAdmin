@@ -238,8 +238,8 @@
             FnGetOrderList(){
                 getOrderListApi(this.orderPar).then(res=>{
                     console.log(res);
-                    this.orderTable = res.DATA.data;
-                    this.orderPar.pageTotal = res.DATA.total;
+                    this.orderTable = res.data.data;
+                    this.orderPar.pageTotal = res.data.total;
                 }).catch(res=>{
                     console.log(res);
                 })

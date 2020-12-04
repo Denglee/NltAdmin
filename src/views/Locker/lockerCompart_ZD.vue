@@ -211,7 +211,7 @@
             FnGetLockerList(){
                 getLockerListApi().then(res=>{
                     console.log(res);
-                    this.lockerTable = res.DATA;
+                    this.lockerTable = res.data;
                 }).catch(res=>{
                     console.log(res);
                 })

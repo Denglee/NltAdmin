@@ -4,8 +4,7 @@
         <div class="bgWhite-public">
             <header class="index-item-title">首页</header>
             <div class="bgWhite-padd20">
-
-                首页
+                切换后的效果在这里：{{ $t('public.operation') }}
 
              <!--   <form class="pt-screen">
                     <el-input placeholder="请输入会员姓名、电话" v-model="staffForm.staffName" class="ptScreen-input"

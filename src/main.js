@@ -25,9 +25,9 @@ if (process.env.NODE_ENV === 'production') {
   if (process.env.VUE_APP_FLAG === 'pro') {
     //production 生产环境发布 地址
     let localUrl = window.location.origin;
-    Axios.defaults.baseURL = 'http://webapi.nlt:8000';//正式 路径
+    Axios.defaults.baseURL = 'http://nltwebapi.zmtek.net';//正式 路径
   } else {
-    Axios.defaults.baseURL = 'http://webapi.nlt:8000';//测试环境路径
+    Axios.defaults.baseURL = 'http://nltwebapi.zmtek.net';//测试环境路径
     // Vue.config.optimization.minimize(false);  //代码不压缩
   }
 } else {

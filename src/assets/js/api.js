@@ -19,7 +19,7 @@ A、登录 + 侧边栏
 * */
 
 export const ApiLayoutNav = params => get('admin/auth/indexMenu', params); /*获取侧边栏 nav*/
-export const ApiloginIn = params => post('admin/user/login', params); /*登录*/
+export const ApiloginIn = params => get('admin/user/login', params); /*登录*/
 export const ApiloginOut = params => post('admin/user/login_out', params); /*退出*/
 export const ApiChangePass = params => post('admin/user/update_password', params); /*修改密码*/
 export const ApiTopSearch = params => post('admin/Member/getMemberInfo', params); /*HeaderTop 头部搜索*/
@@ -55,39 +55,39 @@ export const registerUserApi   = params => post('/admin/user/register', params);
 
 
 /* == B、柜机管理  == */
-export const addLockerApi   = params => post('/adminapi/Locker/addLocker', params);          /*添加快递柜 */
-export const updateLockerApi   = params => post('/adminapi/Locker/updateLocker', params);          /*更新快递柜 */
-export const getLockerListApi   = params => post('/adminapi/locker/getLockerList', params);          /*获取快递柜列表 */
-export const getUserGroupApi  = params => post('/adminapi/locker/getUserGroup', params);          /*获取用户对应企业 */
-export const getUserLockerApi   = params => post('/adminapi/locker/getUserLocker', params);          /*获取用户对应设备 */
-export const getLockerLabelApi   = params => post('/adminapi/locker/getLockerLabel', params);          /*获取快递柜对应抽屉 */
-export const getLockerGroupApi   = params => post('/adminapi/locker/getLockerGroup', params);          /*获取快递柜对应组 */
-export const getGroupUserApi   = params => post('/adminapi/locker/getGroupUser', params);          /*获取组对应用户 */
+export const addLockerApi   = params => post('/admin/Locker/addLocker', params);          /*添加快递柜 */
+export const updateLockerApi   = params => post('/admin/Locker/updateLocker', params);          /*更新快递柜 */
+export const getLockerListApi   = params => post('/admin/locker/getLockerList', params);          /*获取快递柜列表 */
+export const getUserGroupApi  = params => post('/admin/locker/getUserGroup', params);          /*获取用户对应企业 */
+export const getUserLockerApi   = params => post('/admin/locker/getUserLocker', params);          /*获取用户对应设备 */
+export const getLockerLabelApi   = params => post('/admin/locker/getLockerLabel', params);          /*获取快递柜对应抽屉 */
+export const getLockerGroupApi   = params => post('/admin/locker/getLockerGroup', params);          /*获取快递柜对应组 */
+export const getGroupUserApi   = params => post('/admin/locker/getGroupUser', params);          /*获取组对应用户 */
 
-/*export const getCompartmentListApi   = params => post('/adminapi/locker/getCompartmentList', params);          /!*获取抽屉列表 8.19 暂时被下面的替代*!/*/
-export const getCompartmentOrderApi   = params => post('/adminapi/locker/getCompartmentOrder', params);          /*获取抽屉和订单信息 */
+/*export const getCompartmentListApi   = params => post('/admin/locker/getCompartmentList', params);          /!*获取抽屉列表 8.19 暂时被下面的替代*!/*/
+export const getCompartmentOrderApi   = params => post('/admin/locker/getCompartmentOrder', params);          /*获取抽屉和订单信息 */
 
 
 /* == C、订单 == */
-export const getOrderListApi   = params => post('/adminapi/order/getOrderList', params);          /*获取订单列表和状态信息 */
-export const getLabelOrderApi   = params => post('/adminapi/order/getLabelOrder', params);          /*获取抽屉对应订单 */
-export const getOrderStatusApi   = params => post('/adminapi/order/getOrderStatus', params);          /*获取订单状态 */
+export const getOrderListApi   = params => post('/admin/order/getOrderList', params);          /*获取订单列表和状态信息 */
+export const getLabelOrderApi   = params => post('/admin/order/getLabelOrder', params);          /*获取抽屉对应订单 */
+export const getOrderStatusApi   = params => post('/admin/order/getOrderStatus', params);          /*获取订单状态 */
 
 
 /* == D、短信 == */
-export const getMessageListApi   = params => post('/adminapi/message/getMessageList', params);          /*短信 */
+export const getMessageListApi   = params => post('/admin/message/getMessageList', params);          /*短信 */
 
 
 /* == E、报表 == */
-export const getLockerOrderCountApi   = params => post('/adminapi/order/getLockerOrderRecentCount', params);          /*快递柜最近天数订单统计 */
+export const getLockerOrderCountApi   = params => post('/admin/order/getLockerOrderRecentCount', params);          /*快递柜最近天数订单统计 */
 
 
 /* == F、广告 == */
-export const getAdsListApi   = params => post('/adminapi/ads/getAdsList', params);          /*广告 */
+export const getAdsListApi   = params => post('/admin/ads/getAdsList', params);          /*广告 */
 
 
 /* == I、日志 == */
-export const getLogListApi   = params => post('/adminapi/log/getLogList', params);          /*获取日志表 */
+export const getLogListApi   = params => post('/admin/log/getLogList', params);          /*获取日志表 */
 
 
 

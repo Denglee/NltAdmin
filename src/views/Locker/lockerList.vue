@@ -156,8 +156,8 @@
             FnGetLockerList(){
                 getLockerListApi(this.searchForm).then(res=>{
                     console.log(res);
-                    this.lockerTable = res.DATA.data;
-                    this.searchForm.pageTotal = res.DATA.total;
+                    this.lockerTable = res.data.data;
+                    this.searchForm.pageTotal = res.data.total;
                 }).catch(res=>{
                     console.log(res);
                 })

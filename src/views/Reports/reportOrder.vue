@@ -21,7 +21,7 @@
             </header>
             <div class="bgWhite-padd20">
 
-                <!-- 图表集群 -->
+                <!-- 图表集群-->
                 <el-row :gutter="20" class="locker-ul">
                     <el-col :span="14" >
                         <div class="charts-item">
@@ -116,19 +116,17 @@
         },
         methods: {
 
-	        handleChange(val){
-                console.log(val);
-            },
-
-            /*快递柜最近天数订单统计*/
+            /*快递柜最近天数订单统计 */
             FnGetLockerOrderCount(){
                 getLockerOrderCountApi({
                     recent:this.recent,
                 }).then(res=>{
-                    console.log(res.DATA.list);
-                    this.reportTable = res.DATA.list;
-                    this.pieChartData.rows = res.DATA.list.status;
-                    this.hisChartData.rows = res.DATA.list.order;
+                	let lockListData = res.data.list;
+                    console.log(lockListData);
+
+                    this.reportTable = lockListData;
+                    this.pieChartData.rows = lockListData.status;
+                    this.hisChartData.rows = lockListData.order;
                 }).catch(res=>{
                     console.log(res);
                 })
@@ -149,6 +147,17 @@
         },
         created() {
             this.FnGetLockerOrderCount();
+/*
+	        const dateTime = new Date()
+	        const displayTime = `${dateTime.getFullYear()}-${dateTime.getMonth() +
+	        1}-${dateTime.getDate()}`
+            console.log(typeof (displayTime));
+
+	        const dis2 = ''+dateTime.getFullYear()+' - '+dateTime.getMonth()+'';
+	        const dis3 = `${dateTime.getFullYear()}-${dateTime.getMonth()}`;
+	        console.log(dis3);
+	        console.log(dis2);
+	        */
         },
         components:{
             navRefush,

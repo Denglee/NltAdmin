@@ -69,7 +69,7 @@
             FnGetLogList(){
                 getLogListApi().then(res=>{
                     console.log(res);
-                    this.logTable = res.DATA.data;
+                    this.logTable = res.data.data;
                 }).catch(res=>{
                     console.log(res);
                 });

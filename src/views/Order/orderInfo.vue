@@ -205,8 +205,8 @@
             /*获取订单info 列表*/
             FnGetOrderInfo(){
                 getOrderListApi(this.orderInfoParm).then(res=>{
-                    console.log(res.DATA.data[0]);
-                    this.orderInfoArr = res.DATA.data[0];
+                    console.log(res.data.data[0]);
+                    this.orderInfoArr = res.data.data[0];
                 }).catch(res=>{
                     console.log(res);
                 })

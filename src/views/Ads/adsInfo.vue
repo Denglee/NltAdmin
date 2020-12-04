@@ -64,17 +64,18 @@
             }
         },
         methods: {
+        	/* 数据 接口 */
             FnGetAdsList(){
                 getAdsListApi().then(res=>{
                     console.log(res);
-                    this.adsTable = res.DATA.data;
-                    this.adsPar.pageTotal = res.DATA.total;
+                    this.adsTable = res.data.data;
+                    this.adsPar.pageTotal = res.data.total;
                 }).catch(res=>{
                     console.log(res);
                 })
             },
 
-            /*分页*/
+            /* 分页 */
             PageCurrent(page) {
                 console.log(page);
                 this.adsPar.page = page;
@@ -85,6 +86,13 @@
                 this.adsPar.paginate = val;
                 this.FnGetAdsList();
             },
+
+
+            /*点击事件*/
+	        btnMethods(){
+
+            },
+
         },
         created() {
             this.FnGetAdsList();
